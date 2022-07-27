@@ -31,13 +31,15 @@
             ></textarea>
           </td>
           <td>
+            <!-- if errDay is true, a red border will cover the textare -->
             <textarea
               v-model="data.day"
               id="date"
               name=""
               rows="30"
               cols="5"
-              :class="{ errDay: !isValidDate(data.day) }"
+              :class="{ errDay: style.dayErr }"
+              
             ></textarea>
           </td>
           <td>
@@ -120,6 +122,9 @@ export default {
         errorDisplay: "",
         errorMessage: "",
       },
+      style:{
+        dayErr:false
+      }
     };
   },
   methods: {
@@ -164,6 +169,11 @@ export default {
             alert("fail to create");
           } else {
             alert("create successfully");
+            this.style.dayErr=false;
+            this.error.errorDisplay="";
+            for (var item in this.data){
+this.data[item]=""
+            }
             this.$bus.emit("reFetch");
             this.errorDisplay = "";
           }
@@ -175,6 +185,7 @@ export default {
 
       if (!this.isValidDate(this.data.day)) {
         this.errorMessage = " dữ liệu ngày không hợp lệ";
+        this.style.dayErr=true
         return false;
       }
       return true;
