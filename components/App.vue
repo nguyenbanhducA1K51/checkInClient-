@@ -11,6 +11,9 @@ export default {
   components: {
     Menu,
   },
+  created(){
+
+  }
 };
 </script>
 
