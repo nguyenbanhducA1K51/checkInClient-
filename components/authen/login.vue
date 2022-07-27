@@ -46,7 +46,6 @@ export default {
   },
   methods: {
     loginSuccessful() {
-     
       this.$bus.emit("loginPass", true);
     },
     showSignUp() {
@@ -72,7 +71,7 @@ export default {
         };
 
         const rawdata = await fetch(
-          `http://localhost:3100/user/login`,
+          `https://gscheck-in-server.herokuapp.com/user/login`,
           options
         );
         const res = await rawdata.json();
@@ -82,7 +81,7 @@ export default {
           console.log(res.error);
           this.err = res.error;
         } else {
-           localStorage.setItem("jwt-token", res.token);
+          localStorage.setItem("jwt-token", res.token);
           this.loginSuccessful();
         }
       }
@@ -99,7 +98,7 @@ export default {
       };
       try {
         const rawdata = await fetch(
-          `http://localhost:3100/user/login`,
+          `https://gscheck-in-server.herokuapp.com/user/login`,
           options
         );
 

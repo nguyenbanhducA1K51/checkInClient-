@@ -49,7 +49,10 @@ export default {
         },
       };
       try {
-        const raw = await fetch("http://localhost:3100/form/all", options);
+        const raw = await fetch(
+          "https://gscheck-in-server.herokuapp.com/form/all",
+          options
+        );
 
         if (raw.status !== 200) {
           // alert("Looks like there was a problem.");
@@ -57,8 +60,6 @@ export default {
         } else {
           const info = await raw.json();
 
-        
-          
           // console.log(info.data);
           // console.log(info.data[0]);
           this.userForms = info.data;

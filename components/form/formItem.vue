@@ -160,10 +160,10 @@ export default {
       };
       try {
         console.log(this.temp);
-        console.log('123');
-        
+        console.log("123");
+
         const res = await fetch(
-          "http://localhost:3100/form/deleteOne",
+          "https://gscheck-in-server.herokuapp.com/form/deleteOne",
           options
         );
 
@@ -217,7 +217,10 @@ export default {
       try {
         console.log("vao2");
         console.log(this.temp);
-        const res = await fetch("http://localhost:3100/form/update", options);
+        const res = await fetch(
+          "https://gscheck-in-server.herokuapp.com/form/update",
+          options
+        );
 
         if (res.status !== 200) {
           alert("Looks like there was a problem.");
@@ -264,8 +267,6 @@ export default {
 }
 
 .button-7 {
-
-
   width: 70px;
   text-align: right;
   background-color: #0095ff;
@@ -309,7 +310,6 @@ export default {
 }
 
 .button-8 {
-  
   /* right: 0;
   bottom: 0; */
   /* text-align: right; */
@@ -386,11 +386,10 @@ export default {
   background: #f8f8f8;
 }
 .detailButton {
- display:flex;
- justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
   /* display:inline-grid;
   grid-template-columns: 1fr 1fr; */
-  
 }
 #deleteBut {
   width: 50px;

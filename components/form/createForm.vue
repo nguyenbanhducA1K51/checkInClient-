@@ -1,7 +1,7 @@
 <template>
   <div class="all">
     <div class="err">
-    <p > {{ error.errorDisplay }}</p>
+      <p>{{ error.errorDisplay }}</p>
     </div>
     <table class="table1">
       <thead>
@@ -30,15 +30,14 @@
               cols="5"
             ></textarea>
           </td>
-          <td >
+          <td>
             <textarea
               v-model="data.day"
               id="date"
               name=""
               rows="30"
               cols="5"
-
-              :class="{'errDay': !isValidDate(data.day)}"
+              :class="{ errDay: !isValidDate(data.day) }"
             ></textarea>
           </td>
           <td>
@@ -149,7 +148,10 @@ export default {
           }),
         };
         //   console.log(options.headers)
-        const res = await fetch("http://localhost:3100/form/post", options);
+        const res = await fetch(
+          "https://gscheck-in-server.herokuapp.com/form/post",
+          options
+        );
         // console.log(res.status())
         // console.log(res);
         if (res.status !== 200) {
@@ -162,7 +164,7 @@ export default {
             alert("fail to create");
           } else {
             alert("create successfully");
-             this.$bus.emit("reFetch");
+            this.$bus.emit("reFetch");
             this.errorDisplay = "";
           }
         }
@@ -170,9 +172,8 @@ export default {
     },
     validateForm() {
       console.log(this.data.day);
-      
+
       if (!this.isValidDate(this.data.day)) {
-       
         this.errorMessage = " dữ liệu ngày không hợp lệ";
         return false;
       }
@@ -205,21 +206,19 @@ export default {
 </script>
 
 <style>
-.errDay{
+.errDay {
   border: 1px solid red !important;
   border-radius: 4px;
 }
-.err{
-  width:100%;
+.err {
+  width: 100%;
   text-align: center;
-  color:red
+  color: red;
 }
 .submitDiv {
- 
   width: 100%;
   display: flex;
   justify-content: center;
- 
 }
 .submitBut {
   cursor: pointer;
@@ -244,7 +243,6 @@ export default {
 }
 .table1 th,
 .table1 td {
-
 }
 
 .table1 tbody td textarea {
@@ -262,7 +260,7 @@ export default {
 .main-button1:hover {
   background-color: #ccc;
 }
-.all{
-  margin-left:10px
+.all {
+  margin-left: 10px;
 }
 </style>

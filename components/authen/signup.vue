@@ -3,12 +3,12 @@
     <form ref="{formContent}" action="">
       <div class="container">
         <h1 class="lab">Sign Up</h1>
-        <p  class="lab">Please fill in this form to create an account.</p>
+        <p class="lab">Please fill in this form to create an account.</p>
         <hr />
         <div>
           <label htmlFor="email" class="lab"><b>Email</b></label>
           <input
-          class="ip"
+            class="ip"
             v-model="email"
             id="emailSignup"
             type="text"
@@ -20,7 +20,7 @@
 
         <label htmlFor="psw" class="lab"><b>Password</b></label>
         <input
-         class="ip"
+          class="ip"
           v-model="password"
           id="passwordSignup"
           type="password"
@@ -31,7 +31,7 @@
 
         <label htmlFor="psw-repeat" class="lab"><b>Repeat Password</b></label>
         <input
-         class="ip"
+          class="ip"
           v-model="repeatpassword"
           id="passwordrepeat"
           type="password"
@@ -42,7 +42,9 @@
 
         <p id="text-warning p-2" class="lab">{{ error }}</p>
 
-        <p class="lab">By creating an account you agree to our erms & Privacy.</p>
+        <p class="lab">
+          By creating an account you agree to our erms & Privacy.
+        </p>
 
         <div class="clearfix">
           <button @click="showLogin" type="button" class="loginbtn">
@@ -87,7 +89,7 @@ export default {
         };
         try {
           const rawtoken = await fetch(
-            `http://localhost:3100/user/signup`,
+            `https://gscheck-in-server.herokuapp.com/user/signup`,
             options
           );
           const res = await rawtoken.json();
@@ -124,11 +126,11 @@ export default {
 <style>
 .signup * {
   box-sizing: border-box;
-  margin-left:10px ;
+  margin-left: 10px;
 }
 
 /* Full-width input fields */
-.lab{
+.lab {
   margin-left: 10px;
 }
 .ip {
@@ -183,8 +185,8 @@ Set a style for all buttons
   clear: both;
   display: table;
 }
-.clearfix{
-  display:flex
+.clearfix {
+  display: flex;
 }
 .signupbtn {
   background-color: #23e156;
